@@ -21,6 +21,13 @@ pipeline {
                         bat 'npx vitest run --reporter=verbose'
                     }
                 }
+
+                stage('integration test') {
+                    steps {
+                        bat 'npx playwright install'
+                        bat 'npx playwright test'
+                    }
+                }
             }
         }
 
