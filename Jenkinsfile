@@ -8,8 +8,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'npm ci'
-                sh 'npm run build'
+                bat 'npm ci'
+                bat 'npm run build'
             }
         }
 
@@ -18,7 +18,7 @@ pipeline {
                 stage('unit tests') {
                     steps {
                         // Unit tests with Vitest
-                        sh 'npx vitest run --reporter=verbose'
+                        bat 'npx vitest run --reporter=verbose'
                     }
                 }
             }
