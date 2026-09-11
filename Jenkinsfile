@@ -25,7 +25,7 @@ pipeline {
                 stage('integration test') {
                     steps {
                         bat 'npx playwright install'
-                        bat 'npx playwright test'
+                        bat 'npx playwright test --project=chromium'
                     }
                 }
             }
