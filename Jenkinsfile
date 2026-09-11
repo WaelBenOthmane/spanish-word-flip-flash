@@ -45,6 +45,14 @@ pipeline {
             steps {
                 bat 'npx playwright test --project=chromium'
             }
+
+            post {
+                always{
+                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, icon: '', keepAll: false, reporDir: 'reports-e2e/html/', reportFiles: 'index.html', reportName: 'Playwright HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+                    junit stdioRetention: 'ALL', testResults: 'reports-e2e/junit.xml'
+                }
+            }
+            
         }
     }
 }
