@@ -43,7 +43,7 @@ pipeline {
                 E2E_BASE_URL = 'https://spanish-cards.netlify.app/'
             }
             steps {
-                bat 'npx playwright test --project:chromium'
+                bat 'npx playwright test --project=chromium'
             }
         }
     }
